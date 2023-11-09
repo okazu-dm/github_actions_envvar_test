@@ -7,6 +7,7 @@ on:
         description: 'GitHub Token as provided by secrets'
         default: ${{ github.token }}
         required: true
+        type: string
 
 jobs:
   callee:
