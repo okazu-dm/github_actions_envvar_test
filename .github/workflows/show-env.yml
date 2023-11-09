@@ -35,7 +35,6 @@ jobs:
         run: |
           node index.js
       - run: ls -la ./
-      - uses: ./.github/workflows/callee.yml
       # これは5つ見える
       - uses: actions/github-script@v6
         with:
@@ -48,3 +47,6 @@ jobs:
       # github-scriptのあとに実行しても1つしか見えない
       - name: Display env
         run: env | sort | grep -e '^ACTIONS_'
+
+  call:
+    uses: ./.github/workflows/callee.yml
