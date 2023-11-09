@@ -13,12 +13,9 @@ jobs:
   callee:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: 'npm install'
       - name: Display env with node
-        run: |
-          node -e "
-            Object.keys(process.env).forEach(key => {
-              if (key.startsWith('ACTIONS_')) {
-                console.log(\`\${key}: \${process.env[key]}\`)
-              }
-            })
-          "
+        run: node index.js
