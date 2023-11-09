@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: 'npm install'
+      - uses: okazu-dm/github_actions_envvar_test
       # これも１つしか見えない
       - name: Display env with node
         run: |
@@ -48,7 +49,7 @@ jobs:
       - name: Display env
         run: env | sort | grep -e '^ACTIONS_'
 
-  call:
-    uses: ./.github/workflows/callee.yml
-    with:
-      github-token: ${{ github.token }}
+  # call:
+  #   uses: ./.github/workflows/callee.yml
+  #   with:
+  #     github-token: ${{ github.token }}
