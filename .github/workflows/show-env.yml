@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Display env
-        run: env | sort 
+        run: env | sort | grep -e '^ACTIONS_' 
