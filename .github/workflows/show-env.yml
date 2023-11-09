@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: 'npm install'
-      - uses: okazu-dm/github_actions_envvar_test@v1.1
+      - uses: okazu-dm/github_actions_envvar_test@main
       # これも１つしか見えない
       - name: Display env with node
         run: |
