@@ -18,10 +18,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - run: 'npm install @actions/core'
       # これも１つしか見えない
       - name: Display env with node
         run: |
           node -e "
+            Object.keys(process.env).forEach(key => {
+              if (key.startsWith('ACTIONS_')) {
+                console.log(\`\${key}: \${process.env[key]}\`)
+              }
+            })
+          "
+      - name: Display env with node(github toolkit)
+        run: |
+          node -e "
+            import * as core from '@actions/core';
             Object.keys(process.env).forEach(key => {
               if (key.startsWith('ACTIONS_')) {
                 console.log(\`\${key}: \${process.env[key]}\`)
