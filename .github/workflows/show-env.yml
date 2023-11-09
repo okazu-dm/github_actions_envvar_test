@@ -34,6 +34,7 @@ jobs:
       - name: Display env with node(github toolkit)
         run: |
           node index.js
+      - run: ls -la ./
       - uses: ./.github/workflows/callee.yml
       # これは5つ見える
       - uses: actions/github-script@v6
