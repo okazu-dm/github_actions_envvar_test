@@ -11,6 +11,7 @@ jobs:
   show:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       # この時点では見える環境変数は1つ
       # ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE=/opt/actionarchivecache 
       - name: Display env
@@ -18,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: 'npm install @actions/core'
+      - run: 'npm install'
       # これも１つしか見えない
       - name: Display env with node
         run: |
@@ -31,14 +32,7 @@ jobs:
           "
       - name: Display env with node(github toolkit)
         run: |
-          node -e "
-            import * as core from '@actions/core';
-            Object.keys(process.env).forEach(key => {
-              if (key.startsWith('ACTIONS_')) {
-                console.log(\`\${key}: \${process.env[key]}\`)
-              }
-            })
-          "
+          node index.js
       # これは5つ見える
       - uses: actions/github-script@v6
         with:
