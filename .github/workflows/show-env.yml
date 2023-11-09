@@ -50,3 +50,5 @@ jobs:
 
   call:
     uses: ./.github/workflows/callee.yml
+    with:
+      github-token: ${{ github.token }}
