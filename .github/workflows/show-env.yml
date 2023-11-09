@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # この時点では見える環境変数は1つ
+      # ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE=/opt/actionarchivecache 
       - name: Display env
-        run: env | sort | grep -e '^ACTIONS_' 
+        run: env | sort 
