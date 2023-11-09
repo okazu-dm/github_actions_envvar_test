@@ -15,11 +15,23 @@ jobs:
       # ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE=/opt/actionarchivecache 
       - name: Display env
         run: env | sort | grep -e '^ACTIONS_'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Display env with node
+        run: |
+          node -e "
+            Object.keys(process.env).forEach(key => {
+              if (key.startsWith('ACTIONS_')) {
+                console.log(`${key}: ${process.env[key]}`)
+              }
+            })
+          "
       - uses: actions/github-script@v6
         with:
           script: |
             Object.keys(process.env).forEach(key => {
-              if (key.startsWith("ACTIONS_")) {
+              if (key.startsWith('ACTIONS_')) {
                 console.log(`${key}: ${process.env[key]}`)
               }
             })
