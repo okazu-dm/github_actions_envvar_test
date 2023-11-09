@@ -20,7 +20,7 @@ jobs:
           script: |
             Object.keys(process.env).forEach(key => {
               if (key.startsWith("ACTIONS_")) {
-                console.log(process.env[key])
+                console.log(`${key}: ${process.env[key]}`)
               }
             })
       - name: Display env
