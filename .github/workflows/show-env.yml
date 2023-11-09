@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      # これも１つしか見えない
       - name: Display env with node
         run: |
           node -e "
@@ -27,6 +28,7 @@ jobs:
               }
             })
           "
+      # これは5つ見える
       - uses: actions/github-script@v6
         with:
           script: |
@@ -35,5 +37,6 @@ jobs:
                 console.log(`${key}: ${process.env[key]}`)
               }
             })
+      # github-scriptのあとに実行しても1つしか見えない
       - name: Display env
         run: env | sort | grep -e '^ACTIONS_'
