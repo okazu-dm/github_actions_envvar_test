@@ -1,0 +1,20 @@
+name: Callee
+
+on:
+  workflow_call:
+    inputs:
+      github-token:
+          description: 'GitHub Token as provided by secrets'
+          default: ${{ github.token }}
+          required: true
+
+jobs:
+  - name: Display env with node
+    run: |
+      node -e "
+        Object.keys(process.env).forEach(key => {
+          if (key.startsWith('ACTIONS_')) {
+            console.log(\`\${key}: \${process.env[key]}\`)
+          }
+        })
+      "
