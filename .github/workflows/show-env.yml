@@ -18,4 +18,12 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(process.env)
+            keys(process.env).forEach(key => {
+              if (key.startsWith("ACTIONS_")) {
+                console.log(process.env[key])
+              }
+            })
+      - name: Display env
+        run: env | sort 
+
+            
