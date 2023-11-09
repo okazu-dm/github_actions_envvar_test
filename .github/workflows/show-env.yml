@@ -14,7 +14,7 @@ jobs:
       # この時点では見える環境変数は1つ
       # ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE=/opt/actionarchivecache 
       - name: Display env
-        run: env | sort 
+        run: env | sort | grep '^ACTION_'
       - uses: actions/github-script@v6
         with:
           script: |
@@ -24,6 +24,4 @@ jobs:
               }
             })
       - name: Display env
-        run: env | sort 
-
-            
+        run: env | sort | grep '^ACTION_'
