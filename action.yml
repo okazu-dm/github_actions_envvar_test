@@ -6,7 +6,5 @@ branding:
   icon: 'eye'
 
 runs:
-  using: "composite"
-  steps:
-    - run: env | sort | grep -e '^ACTIONS_'
-      shell: bash
+  using: 'node20'
+  main: 'plain.js'

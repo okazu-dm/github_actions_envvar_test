@@ -4,11 +4,7 @@ author: 'okazu-dm'
 branding:
   color: 'red'
   icon: 'eye'
-
-runs:
-  using: "composite"
-  steps:
-    - run: env | sort | grep -e '^ACTIONS_'
-      shell: bash
-
   
+runs:
+  using: 'node20'
+  main: 'plain.js'
