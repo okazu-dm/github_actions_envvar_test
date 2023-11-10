@@ -1,16 +1,10 @@
-name: 'GitHub Envvar test'
-description: "github envvar test"
-author: 'okazu-dm'
-branding:
-  color: 'red'
-  icon: 'eye'
-
-# inputs:
-#   github-token:
-#     description: 'GitHub Token as provided by secrets'
-#     default: ${{ github.token }}
-#     required: true
+name: show env(action)
+description: show environment variables
 
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: "composite"
+  steps:
+    - run: env | sort | grep -e '^ACTIONS_'
+      shell: bash
+
+  

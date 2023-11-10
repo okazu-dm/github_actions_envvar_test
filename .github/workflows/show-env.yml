@@ -26,7 +26,10 @@ jobs:
         uses: ./show-env
       - name: run remote show-env action 
         uses: okazu-dm/github_actions_envvar_test/show-env@main
-      # これも１つしか見えない
+      - name: run marketplace show-env action
+        uses: okazu-dm/github_actions_envvar_test@main
+
+        # これも１つしか見えない
       - name: Display env with node
         run: |
           node -e "
