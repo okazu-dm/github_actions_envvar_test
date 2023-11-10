@@ -21,13 +21,18 @@ jobs:
         with:
           node-version: '18.x'
       - run: 'npm install'
-      # ローカル参照だと1つしか見えない
-      - name: run local show-env action
-        uses: ./show-env
-      - name: run remote show-env action 
-        uses: okazu-dm/github_actions_envvar_test/show-env@main
-      - name: run marketplace show-env action
-        uses: okazu-dm/github_actions_envvar_test@main
+
+      # compositeだと1つしか見えない
+      - name: run local show-env-composite action
+        uses: ./show-env-composite
+      - name: run remote show-env-composite action 
+        uses: okazu-dm/github_actions_envvar_test/show-env-composite@main
+
+      # ローカル参照でもnodeだと5つ見える
+      - name: run local show-env-node action
+        uses: ./show-env-node
+      - name: run remote show-env-node action 
+        uses: okazu-dm/github_actions_envvar_test/show-env-node@main
 
         # これも１つしか見えない
       - name: Display env with node
