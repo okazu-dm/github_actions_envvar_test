@@ -21,8 +21,11 @@ jobs:
         with:
           node-version: '18.x'
       - run: 'npm install'
-      # これは5つ見える
-      - uses: ./show-env
+      # ローカル参照だと1つしか見えない
+      - name: run local show-env action
+        uses: ./show-env
+      - name: run remote show-env action 
+        uses: okazu-dm/github_actions_envvar_test/show-env@main
       # これも１つしか見えない
       - name: Display env with node
         run: |
