@@ -8,5 +8,5 @@ branding:
 runs:
   using: "composite"
   steps:
-    - run: env | sort | grep -e '^ACTIONS_'
+    - run: node ../plain.js
       shell: bash
