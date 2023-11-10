@@ -28,9 +28,10 @@ jobs:
       - name: run remote show-env-composite action 
         uses: okazu-dm/github_actions_envvar_test/show-env-composite@main
 
-      # docker typeでも1つしか見えない
+      # docker typeではlocalだと4つ見える
       - name: run local show-env-docker action
         uses: ./show-env-docker
+      # remoteだと1つしか見えない
       - name: run remote show-env-docker action 
         uses: okazu-dm/github_actions_envvar_test/show-env-composite@main
 
