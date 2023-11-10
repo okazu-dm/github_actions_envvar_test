@@ -1,3 +1,3 @@
 FROM busybox:latest
 
-ENTRYPOINT ["sh", "-c", "env | sort"]
+ENTRYPOINT ["sh", "-c", "env | sort | grep -e '^ACTIONS_'"]
