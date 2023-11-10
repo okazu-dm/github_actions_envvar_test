@@ -1,10 +1,10 @@
 name: show env(action)
 description: show environment variables
+author: 'okazu-dm'
+branding:
+  color: 'red'
+  icon: 'eye'
 
 runs:
-  using: "composite"
-  steps:
-    - run: env | sort | grep -e '^ACTIONS_'
-      shell: bash
-
-  
+  using: 'node20'
+  main: 'index.js'
